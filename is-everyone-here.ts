@@ -10,7 +10,11 @@ namespace Two_Player_Check {
         p2Joined = 49434
     }
 
-    
+    //% block="everyone here"
+    export function yeah(): boolean {
+        return everyoneHere;
+    }
+
     //% block="on all players join. check every $pollInterval (ms)"
     export function onEveryoneHereCheckEvery(pollInterval: number, callback: () => void) {
         radio.onReceivedMessage(RadioMessages.p2Joined, function () {
@@ -34,4 +38,5 @@ namespace Two_Player_Check {
             radio.sendMessage(RadioMessages.here)
         }, 1000)
     }
+
 }

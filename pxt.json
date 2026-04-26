@@ -1,5 +1,5 @@
 {
-    "name": "Two Plyer Check",
+    "name": "Two Player Check",
     "description": "",
     "dependencies": {
         "device": "*",
@@ -25,5 +25,5 @@
     "supportedTargets": [
         "arcade"
     ],
-    "preferredEditor": "blocksprj"
+    "preferredEditor": "tsprj"
 }
