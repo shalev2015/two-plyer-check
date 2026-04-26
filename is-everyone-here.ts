@@ -1,17 +1,17 @@
 /**
  * Custom blocks
  */
-namespace TwoPlayerCheck {
+namespace Two_Player_Check {
 
     let everyoneHere = false;
-
+    radio.setGroup(1)
     enum RadioMessages {
         here = 15547,
         p2Joined = 49434
     }
 
     //% block
-    export function onEveryoneHere(pollInterval: number, callback: () => void) {
+    export function onEveryoneHereCheckEvery(pollInterval: number, callback: () => void) {
         radio.onReceivedMessage(RadioMessages.p2Joined, function () {
             if (everyoneHere) {
                 return;
