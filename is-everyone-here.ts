@@ -15,7 +15,7 @@ namespace Two_Player_Check {
         return everyoneHere;
     }
 
-    //% block="on all players join. check every $pollInterval (ms)"
+    //% block="on 2 players join. check every $pollInterval (ms)"
     export function onEveryoneHereCheckEvery(pollInterval: number, callback: () => void) {
         radio.onReceivedMessage(RadioMessages.p2Joined, function () {
             if (everyoneHere) {
