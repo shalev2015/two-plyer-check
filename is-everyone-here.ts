@@ -57,7 +57,7 @@ namespace Multiplayer_Check {
     }
 
     //% block="max number of players"
-    //% group="status"
+    //% group="Status"
     //% weight=80
     export function checkMaxNum(): number {
         return maxPlayers
