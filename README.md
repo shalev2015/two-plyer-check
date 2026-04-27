@@ -28,8 +28,8 @@ To edit this repository in MakeCode.
 #### How to Use Blocks
 
 run code on (1) here check every (2).
- In the (1), write the number of players you are checking for (2-infinity). In the (2), write the number of ms of intervals to check. set max number of players (1). In the (1), write the number of max players posible. reset connection. Resets the array of players. everyone here. Returns true or false, depending on if the number of players joined is equal to the max number of players. current player count. returns the number of current players.
+ In the (1), write the number of players you are checking for (2-infinity). In the (2), write the number of ms of intervals to check. set max number of players (1). In the (1), write the number of max players posible. reset connection. Resets the array of players. everyone here. Returns true or false, depending on if the number of players joined is equal to the max number of players. current player count. returns the number of current players. max number of players. Returns the max number of players. on player disconnects. Run code on player disconnect. my player number. Translates your ID to multiplayer extension compactible player numbers. player number for ID (1). Write a 7 digit ID in (1), this block will translate it to multiplayer extension compactible player numbers.
 
 #### Please Note
 
-This extesion only works with radio. The radio group will automaticaly be set to 1.
+This extesion only works with radio. The radio group will automaticaly be set to 1. Compactibillity with multiplayer extension only works with 2-4 players.
