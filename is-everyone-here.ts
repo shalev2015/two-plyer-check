@@ -18,14 +18,14 @@ namespace Multiplayer_Check {
 
     //% block="on player disconnect"
     //% group="Events"
-    //% weight=100
+    //% weight=90
     export function onDisconnect(callback: () => void) {
         disconnectCallback = callback;
     }
 
     //% block="on $numP players join, check every $pollInterval (ms)"
     //% group="Events"
-    //% weight=90
+    //% weight=100
     export function onEveryoneHere(numP: number, pollInterval: number, callback: () => void) {
         maxPlayers = Math.max(2, numP);
 
@@ -63,14 +63,14 @@ namespace Multiplayer_Check {
 
     //% block="everyone here"
     //% group="Status"
-    //% weight=100
+    //% weight=90
     export function checkEveryoneHere(): boolean {
         return everyoneHere;
     }
 
     //% block="current player count"
     //% group="Status"
-    //% weight=90
+    //% weight=100
     export function playerCount(): number {
         return idList.length;
     }
@@ -79,7 +79,6 @@ namespace Multiplayer_Check {
 
     //% block="set max number of players $maxNum"
     //% group="Settings"
-    //% weight=100
     export function setMax(maxNum: number) {
         maxPlayers = Math.max(2, maxNum);
     }
