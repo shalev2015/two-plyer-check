@@ -2,7 +2,7 @@
  * Custom blocks for Multiplayer Sync with Unique ID & P-Num Mapping
  */
 //% color="#2695b5" icon="\uf0c0"
-//% groups=['Events', 'Status', 'Settings']
+//% groups=['Events', 'Status', 'Settings', 'Multiplayer Compactible']
 namespace Multiplayer_Check {
     let everyoneHere = false;
     let id = randint(100000, 999999) + control.millis();
@@ -14,24 +14,18 @@ namespace Multiplayer_Check {
     radio.setGroup(1);
     lastSeen[id] = control.millis();
 
-    // --- SETTINGS SECTION ---
-
-    //% block="set max number of players $maxNum"
-    //% group="Settings"
-    export function setMax(maxNum: number) {
-        maxPlayers = Math.max(2, maxNum);
-    }
-
     // --- EVENTS SECTION ---
 
     //% block="on player disconnect"
     //% group="Events"
+    //% weight=100
     export function onDisconnect(callback: () => void) {
         disconnectCallback = callback;
     }
 
     //% block="on $numP players join, check every $pollInterval (ms)"
     //% group="Events"
+    //% weight=90
     export function onEveryoneHere(numP: number, pollInterval: number, callback: () => void) {
         maxPlayers = Math.max(2, numP);
 
@@ -67,30 +61,43 @@ namespace Multiplayer_Check {
 
     // --- STATUS SECTION ---
 
-    //% block="my player number (P1-P4)"
-    //% group="Multiplayer Compactible"
-    //% weight=100
-    export function pNum(): number {
-        // Returns 1 for Player 1, 2 for Player 2, etc.
-        return idList.indexOf(id) + 1;
-    }
-
-    //% block="player number for ID $targetId"
-    //% group="Multiplayer Compactible"
-    export function pNumForId(targetId: number): number {
-        let index = idList.indexOf(targetId);
-        return index === -1 ? 0 : index + 1;
-    }
-
     //% block="everyone here"
     //% group="Status"
+    //% weight=100
     export function checkEveryoneHere(): boolean {
         return everyoneHere;
     }
 
     //% block="current player count"
     //% group="Status"
+    //% weight=90
     export function playerCount(): number {
         return idList.length;
+    }
+
+    // --- SETTINGS SECTION ---
+
+    //% block="set max number of players $maxNum"
+    //% group="Settings"
+    //% weight=100
+    export function setMax(maxNum: number) {
+        maxPlayers = Math.max(2, maxNum);
+    }
+
+    // --- MULTIPLAYER COMPACTIBLE SECTION ---
+
+    //% block="my player number (P1-P4)"
+    //% group="Multiplayer Compactible"
+    //% weight=100
+    export function pNum(): number {
+        return idList.indexOf(id) + 1;
+    }
+
+    //% block="player number for ID $targetId"
+    //% group="Multiplayer Compactible"
+    //% weight=90
+    export function pNumForId(targetId: number): number {
+        let index = idList.indexOf(targetId);
+        return index === -1 ? 0 : index + 1;
     }
 }
