@@ -3,8 +3,8 @@
     "description": "",
     "dependencies": {
         "device": "*",
-        "radio-broadcast": "*",
-        "multiplayer": "*"
+        "multiplayer": "*",
+        "radio": "*"
     },
     "files": [
         "main.blocks",
@@ -25,5 +25,5 @@
     "supportedTargets": [
         "arcade"
     ],
-    "preferredEditor": "blocksprj"
+    "preferredEditor": "tsprj"
 }
