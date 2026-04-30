@@ -4,7 +4,6 @@
     "description": "",
     "dependencies": {
         "device": "*",
-        "multiplayer": "*",
         "radio": "*"
     },
     "files": [
